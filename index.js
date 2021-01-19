@@ -22,14 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   keys.addEventListener('click', (e) => {
     let { target: element } = e
-
     while (element && element.tagName !== 'BUTTON') {
       element = element.parentElement
     }
 
-    if (!element) {
-      return
-    } else {
+    
       const getKeyAtr = element.getAttribute('data-key')
       const audio = document.querySelector(`audio[data-key="${getKeyAtr}"]`)
       if (timeouts[getKeyAtr]) clearTimeout(timeouts[getKeyAtr])
@@ -41,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clone.classList.remove('active')
       }, 500)
       element.parentElement.replaceChild(clone, element)
-    }
+    
   })
 })

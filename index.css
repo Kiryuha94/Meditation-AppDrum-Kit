@@ -6,7 +6,7 @@
 }
 
 body {
-  background: url(./img/atmosfera.jpg) center;
+  background: url(./img/atmosfera.jpg) center/cover;
   height: 100vh;
 }
 

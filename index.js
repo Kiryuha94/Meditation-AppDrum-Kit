@@ -1,11 +1,13 @@
 const timeouts = {},
   keys = document.querySelector('.keys')
+
 document.addEventListener('DOMContentLoaded', () => {
-  window.addEventListener('keydown', (e) => {
-    const keyCode = e.keyCode
+  window.addEventListener('keydown', ({ keyCode }) => {
     const key = document.querySelector(`button[data-key="${keyCode}"]`)
+
     if (key) {
       const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
+
       if (timeouts[keyCode]) clearTimeout(timeouts[keyCode])
       audio.play()
       audio.currentTime = 0
@@ -19,12 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   keys.addEventListener('click', (e) => {
-    let element = e.target
+    let { target: element } = e
+
     while (element && element.tagName !== 'BUTTON') {
       element = element.parentElement
     }
 
-    if (element) {
+    if (!element) {
+      return
+    } else {
       const getKeyAtr = element.getAttribute('data-key')
       const audio = document.querySelector(`audio[data-key="${getKeyAtr}"]`)
       if (timeouts[getKeyAtr]) clearTimeout(timeouts[getKeyAtr])

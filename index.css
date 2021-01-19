@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+body {
+  background: url(./img/atmosfera.jpg) center;
+  height: 100vh;
+}
+
+.keys {
+  text-align: center;
+  padding-top: 30rem;
+}
+
+.key {
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
+  width: 10rem;
+  text-align: center;
+  color: rgb(241, 204, 204);
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem rgb(0, 0, 0);
+  transform: scale(1);
+  cursor: pointer;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.active {
+  border-color: rgb(165, 94, 231);
+  box-shadow: 0 0 1rem rgb(165, 94, 231);
+  animation: scale 0.5s;
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(1.3);
+  }
+}
